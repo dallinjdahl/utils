@@ -1,0 +1,3 @@
+#!/bin/sh
+nf=$(sstrip . $(basename $1)).pdf
+expand -t4 $1 | enscript -o - | ps2pdf - $nf
