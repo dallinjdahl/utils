@@ -1,5 +1,7 @@
 .POSIX:
 
+include config.mk
+
 all: sstrip txt2pdf
 
 clean:
