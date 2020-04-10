@@ -1,0 +1,9 @@
+#!/bin/sh
+feh --bg-fill .background.jpg
+slstatus &
+test -f ~/xkb/map && xkbcomp ~/xkb/map $DISPLAY
+export SUDO_ASKPASS="/usr/local/bin/dpass"
+setxkbmap -option caps:escape
+picom &
+xcmenu &
+exec dwm
