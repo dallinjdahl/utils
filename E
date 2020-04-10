@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [ "$1" = "-a" ]
+then
+	shift 1
+	while [ "$#" -gt 0 ]
+	do
+		st -t "vis: $file" nvis +"$2" "$1" &
+		shift 2 || shift $#
+	done
+	exit
+fi
+
+for file in "$@"
+do
+st -t "vis: $file" nvis "$file" &
+done
