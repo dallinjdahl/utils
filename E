@@ -1,11 +1,22 @@
 #!/bin/sh
 
+if [ "$1" = "-2" ]
+then
+	shift 1
+	while [ "$#" -gt 0 ]
+	do
+		st -t "vis: $1" nvis "+$2-/\n/+#$3" "$1" &
+		shift 3 || shift $#
+	done
+	exit
+fi
+
 if [ "$1" = "-a" ]
 then
 	shift 1
 	while [ "$#" -gt 0 ]
 	do
-		st -t "vis: $file" nvis +"$2" "$1" &
+		st -t "vis: $1" nvis +"$2" "$1" &
 		shift 2 || shift $#
 	done
 	exit
