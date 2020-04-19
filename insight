@@ -1,0 +1,17 @@
+#!/bin/sh
+
+mkdir -p ~/insights
+
+file=~/insights/$(date +'%Y%m%d')
+
+echo > $file
+echo "Insights" >> $file
+echo "Start" >> $file
+echo "Stop" >> $file
+echo "Continue" >> $file
+st -t "insights for $(date +'%D')" nvis $file
+title=$(sed -n -e '1p' $file | tr -d '\t' | tr '[:blank:]' '_' | tr '[:upper:]' '[:lower:]')
+fmt -s $file > $file-$title
+rm $file
+
+
