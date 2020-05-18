@@ -1,0 +1,4 @@
+#!/bin/sh
+nf=$(sstrip . $(basename $1)).png
+gs -sDEVICE=png16m -dNOPAUSE -dBATCH -r200 -dEPSCrop -sOutputFile=$nf $1
+
