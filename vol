@@ -1,0 +1,5 @@
+#!/usr/local/bin/rc
+info=`{amixer sget Master | tr -d '%' | awk -F'[][%]' '/Left:/ { print $4, $2 }' }
+mt=' '
+echo $info | grep -q '^off' && mt='-'
+echo $mt^$info(2)
